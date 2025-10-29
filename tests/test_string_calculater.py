@@ -1,8 +1,7 @@
+import pytest
 from src.string_calculater import string_calculater
 
-
-def test_empty_string_return_0():
-    assert string_calculater('') == 0
-
-def test_0_return_0():
-    assert string_calculater('0') == 0
+@pytest.mark.parametrize('n,expected_result', [('',0), ('0',0)])
+def test_n_returns_expected_result(n, expected_result):
+    actual_result = string_calculater(n)
+    assert actual_result == expected_result
